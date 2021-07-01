@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "JZKsyBBuAjSMyICuWxesh7ai4dLkf8vNQYfznNjCS3REfoCPA9YIrGj+vn9xNLYbfTTiRvrQqwi0D3OVUl0V3A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\video\\source\\repos\\ResidentEvilSpeedrunning\\SRTPluginProviderRE5\\SRTPluginProviderRE5\\SRTPluginProviderRE5.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\video\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
+  ],
+  "logs": []
+}
