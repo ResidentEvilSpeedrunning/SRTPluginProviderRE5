@@ -6,6 +6,13 @@ namespace SRTPluginProviderRE5
 {
     public interface IGameMemoryRE5
     {
+        // Versioninfo
+        string GameName { get; }
+        string VersionInfo { get; }
+
+        // GameInfo
+        string GameInfo { get; set; }
+
         // Chris HP
         short PlayerCurrentHealth { get; set; }
         short PlayerMaxHealth { get; set; }
@@ -62,12 +69,11 @@ namespace SRTPluginProviderRE5
         // IGT 2
         float IGT2 { get; set; }
 
-        // Versioninfo
-        string VersionInfo { get; }
-
-        // GameInfo
-        string GameInfo { get; set; }
         InventoryEntry[] PlayerInventory { get; set; }
         InventoryEntry[] Player2Inventory { get; set; }
+
+        // Calculated properties.
+        TimeSpan IGTTimeSpan { get; }
+        string IGTFormattedString { get; }
     }
 }

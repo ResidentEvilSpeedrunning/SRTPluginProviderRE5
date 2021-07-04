@@ -1,8 +1,17 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
-      "System.Text.Json/4.7.2": {
+    "net5.0": {
+      "System.Memory/4.5.4": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
+        }
+      },
+      "System.Text.Json/5.0.2": {
         "type": "package",
         "compile": {
           "lib/netcoreapp3.0/System.Text.Json.dll": {}
@@ -11,11 +20,12 @@
           "lib/netcoreapp3.0/System.Text.Json.dll": {}
         }
       },
-      "ProcessMemory32/2.3.3": {
+      "ProcessMemory32/3.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "System.Text.Json": "4.7.2"
+          "System.Memory": "4.5.4",
+          "System.Text.Json": "5.0.2"
         },
         "compile": {
           "bin/placeholder/ProcessMemory32.dll": {}
@@ -24,9 +34,9 @@
           "bin/placeholder/ProcessMemory32.dll": {}
         }
       },
-      "SRTPluginBase/2.4.3": {
+      "SRTPluginBase/3.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
+        "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
           "System.Text.Json": "4.7.2"
         },
@@ -40,10 +50,33 @@
     }
   },
   "libraries": {
-    "System.Text.Json/4.7.2": {
-      "sha512": "TcMd95wcrubm9nHvJEQs70rC0H/8omiSGGpU4FQ/ZA1URIqD4pjmFJh2Mfv1yH1eHgJDWTi2hMDXwTET+zOOyg==",
+    "System.Memory/4.5.4": {
+      "sha512": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
       "type": "package",
-      "path": "system.text.json/4.7.2",
+      "path": "system.memory/4.5.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Memory.dll",
+        "lib/net461/System.Memory.xml",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.4.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Text.Json/5.0.2": {
+      "sha512": "I47dVIGiV6SfAyppphxqupertT/5oZkYLDCX6vC3HpOI4ZLjyoKAreUoem2ie6G0RbRuFrlqz/PcTQjfb2DOfQ==",
+      "type": "package",
+      "path": "system.text.json/5.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -56,34 +89,34 @@
         "lib/netcoreapp3.0/System.Text.Json.xml",
         "lib/netstandard2.0/System.Text.Json.dll",
         "lib/netstandard2.0/System.Text.Json.xml",
-        "system.text.json.4.7.2.nupkg.sha512",
+        "system.text.json.5.0.2.nupkg.sha512",
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
     },
-    "ProcessMemory32/2.3.3": {
+    "ProcessMemory32/3.0.0": {
       "type": "project",
       "path": "../../../Squirrelies/ProcessMemory/ProcessMemory/ProcessMemory.csproj",
       "msbuildProject": "../../../Squirrelies/ProcessMemory/ProcessMemory/ProcessMemory.csproj"
     },
-    "SRTPluginBase/2.4.3": {
+    "SRTPluginBase/3.0.0": {
       "type": "project",
       "path": "../../../Squirrelies/SRTHost/SRTPluginBase/SRTPluginBase.csproj",
       "msbuildProject": "../../../Squirrelies/SRTHost/SRTPluginBase/SRTPluginBase.csproj"
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
-      "ProcessMemory32 >= 2.3.3",
-      "SRTPluginBase >= 2.4.3"
+    "net5.0": [
+      "ProcessMemory32 >= 3.0.0",
+      "SRTPluginBase >= 3.0.0"
     ]
   },
   "packageFolders": {
     "C:\\Users\\video\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.0.1",
     "restore": {
       "projectUniqueName": "C:\\Users\\video\\source\\repos\\ResidentEvilSpeedrunning\\SRTPluginProviderRE5\\SRTPluginProviderRE5\\SRTPluginProviderRE5.csproj",
       "projectName": "SRTPluginProviderRE5",
@@ -96,15 +129,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.1"
+        "net5.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "projectReferences": {
             "C:\\Users\\video\\source\\repos\\Squirrelies\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj": {
               "projectPath": "C:\\Users\\video\\source\\repos\\Squirrelies\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj"
@@ -123,8 +156,8 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
+      "net5.0": {
+        "targetAlias": "net5.0",
         "imports": [
           "net461",
           "net462",

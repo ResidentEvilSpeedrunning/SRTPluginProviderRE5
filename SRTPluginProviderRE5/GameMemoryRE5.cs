@@ -10,7 +10,18 @@ using System.Reflection;
 namespace SRTPluginProviderRE5
 {
     public class GameMemoryRE5 : IGameMemoryRE5
-    {   // Chris HP
+    {
+        private const string IGT_TIMESPAN_STRING_FORMAT = @"hh\:mm\:ss";
+        public string GameName => "RE5";
+
+        // Versioninfo
+        public string VersionInfo => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
+
+        // GameInfo
+        public string GameInfo { get => _gameInfo; set => _gameInfo = value; }
+        internal string _gameInfo;
+
+        // Chris HP
         public short PlayerCurrentHealth { get => _playerCurrentHealth; set => _playerCurrentHealth = value; }
         internal short _playerCurrentHealth;
 
@@ -91,17 +102,27 @@ namespace SRTPluginProviderRE5
         public float IGT2 { get => _igt2; set => _igt2 = value; }
         internal float _igt2;
 
-        // Versioninfo
-        public string VersionInfo => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
-
-        // GameInfo
-        public string GameInfo { get =>_gameInfo; set => _gameInfo = value; }
-        internal string _gameInfo;
-
         public InventoryEntry[] PlayerInventory { get => _playerInventory; set => _playerInventory = value; }
         internal InventoryEntry[] _playerInventory;
 
         public InventoryEntry[] Player2Inventory { get => _player2Inventory; set => _player2Inventory = value; }
         internal InventoryEntry[] _player2Inventory;
+
+        public TimeSpan IGTTimeSpan
+        {
+            get
+            {
+                TimeSpan timespanIGT;
+
+                if (IGT >= 0f)
+                    timespanIGT = TimeSpan.FromSeconds(IGT);
+                else
+                    timespanIGT = new TimeSpan();
+
+                return timespanIGT;
+            }
+        }
+
+        public string IGTFormattedString => IGTTimeSpan.ToString(IGT_TIMESPAN_STRING_FORMAT, CultureInfo.InvariantCulture);
     }
 }
