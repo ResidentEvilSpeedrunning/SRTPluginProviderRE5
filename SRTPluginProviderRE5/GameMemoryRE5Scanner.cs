@@ -205,19 +205,8 @@ namespace SRTPluginProviderRE5
             bool success;
 
             // Chris HP
-            if (SafeReadByteArray(PointerPlayerHP.Address, sizeof(GamePlayerHP), out byte[] gamePlayerHpBytes))
-            {
-                var playerHp = GamePlayerHP.AsStruct(gamePlayerHpBytes);
-                gameMemoryValues._playerMaxHealth = playerHp.Max;
-                gameMemoryValues._playerCurrentHealth = playerHp.Current;
-            }
-            // Sheva HP
-            if (SafeReadByteArray(PointerPlayerHP2.Address, sizeof(GamePlayerHP), out byte[] gamePlayerHpBytes2))
-            {
-                var playerHp2 = GamePlayerHP.AsStruct(gamePlayerHpBytes2);
-                gameMemoryValues._playerMaxHealth2 = playerHp2.Max;
-                gameMemoryValues._playerCurrentHealth2 = playerHp2.Current;
-            }
+            gameMemoryValues._player = PointerPlayerHP.Deref<GamePlayer>(0x1364);
+            gameMemoryValues._player2 = PointerPlayerHP2.Deref<GamePlayer>(0x1364);
 
             // Money
             fixed (int* p = &gameMemoryValues._money)

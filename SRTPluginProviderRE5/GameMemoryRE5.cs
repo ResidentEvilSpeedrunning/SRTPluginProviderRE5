@@ -10,18 +10,24 @@ using System.Reflection;
 namespace SRTPluginProviderRE5
 {
     public class GameMemoryRE5 : IGameMemoryRE5
-    {   // Chris HP
-        public short PlayerCurrentHealth { get => _playerCurrentHealth; set => _playerCurrentHealth = value; }
-        internal short _playerCurrentHealth;
+    {
+        private const string IGT_TIMESPAN_STRING_FORMAT = @"hh\:mm\:ss";
+        public string GameName => "RE5";
 
-        public short PlayerMaxHealth { get => _playerMaxHealth; set => _playerMaxHealth = value; }
-        internal short _playerMaxHealth;
+        // Versioninfo
+        public string VersionInfo => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
+
+        // GameInfo
+        public string GameInfo { get => _gameInfo; set => _gameInfo = value; }
+        internal string _gameInfo;
+
+        // Chris HP
+        public GamePlayer Player { get => _player; set => _player = value; }
+        internal GamePlayer _player;
+
         // Sheva HP
-        public short PlayerCurrentHealth2 { get => _playerCurrentHealth2; set => _playerCurrentHealth2 = value; }
-        internal short _playerCurrentHealth2;
-
-        public short PlayerMaxHealth2 { get => _playerMaxHealth2; set => _playerMaxHealth2 = value; }
-        internal short _playerMaxHealth2;
+        public GamePlayer Player2 { get => _player2; set => _player2 = value; }
+        internal GamePlayer _player2;
 
         // Money
         public int Money { get => _money; set => _money = value; }
@@ -91,17 +97,27 @@ namespace SRTPluginProviderRE5
         public float IGT2 { get => _igt2; set => _igt2 = value; }
         internal float _igt2;
 
-        // Versioninfo
-        public string VersionInfo => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion;
-
-        // GameInfo
-        public string GameInfo { get =>_gameInfo; set => _gameInfo = value; }
-        internal string _gameInfo;
-
         public InventoryEntry[] PlayerInventory { get => _playerInventory; set => _playerInventory = value; }
         internal InventoryEntry[] _playerInventory;
 
         public InventoryEntry[] Player2Inventory { get => _player2Inventory; set => _player2Inventory = value; }
         internal InventoryEntry[] _player2Inventory;
+
+        public TimeSpan IGTTimeSpan
+        {
+            get
+            {
+                TimeSpan timespanIGT;
+
+                if (IGT >= 0f)
+                    timespanIGT = TimeSpan.FromSeconds(IGT);
+                else
+                    timespanIGT = new TimeSpan();
+
+                return timespanIGT;
+            }
+        }
+
+        public string IGTFormattedString => IGTTimeSpan.ToString(IGT_TIMESPAN_STRING_FORMAT, CultureInfo.InvariantCulture);
     }
 }
