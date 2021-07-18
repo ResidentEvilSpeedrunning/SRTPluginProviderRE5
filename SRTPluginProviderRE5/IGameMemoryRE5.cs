@@ -14,12 +14,10 @@ namespace SRTPluginProviderRE5
         string GameInfo { get; set; }
 
         // Chris HP
-        short PlayerCurrentHealth { get; set; }
-        short PlayerMaxHealth { get; set; }
+        GamePlayer Player { get; set; }
 
         // Sheva HP
-        short PlayerCurrentHealth2 { get; set; }
-        short PlayerMaxHealth2 { get; set; }
+        GamePlayer Player2 { get; set; }
 
         // Money
         int Money { get; set; }

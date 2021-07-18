@@ -22,17 +22,12 @@ namespace SRTPluginProviderRE5
         internal string _gameInfo;
 
         // Chris HP
-        public short PlayerCurrentHealth { get => _playerCurrentHealth; set => _playerCurrentHealth = value; }
-        internal short _playerCurrentHealth;
+        public GamePlayer Player { get => _player; set => _player = value; }
+        internal GamePlayer _player;
 
-        public short PlayerMaxHealth { get => _playerMaxHealth; set => _playerMaxHealth = value; }
-        internal short _playerMaxHealth;
         // Sheva HP
-        public short PlayerCurrentHealth2 { get => _playerCurrentHealth2; set => _playerCurrentHealth2 = value; }
-        internal short _playerCurrentHealth2;
-
-        public short PlayerMaxHealth2 { get => _playerMaxHealth2; set => _playerMaxHealth2 = value; }
-        internal short _playerMaxHealth2;
+        public GamePlayer Player2 { get => _player2; set => _player2 = value; }
+        internal GamePlayer _player2;
 
         // Money
         public int Money { get => _money; set => _money = value; }
