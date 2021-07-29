@@ -81,6 +81,12 @@ namespace SRTPluginProviderRE5
         public float IGT { get => _igt; set => _igt = value; }
         internal float _igt;
 
+        // SRank
+        public bool IsSRank => Chapters.IsSRank(Chapter, EnemiesHit > 0 ? ShotsFired / EnemiesHit * 100 : 0, ChrisKills, Deaths, IGT);
+
+        // Required Kills SRank
+        public int KillsRequired => Chapters.GetKillsNeeded(Chapter);
+
         // Shots Fired 2
         public int ShotsFired2 { get => _shotsfired2; set => _shotsfired2 = value; }
         internal int _shotsfired2;
@@ -96,6 +102,9 @@ namespace SRTPluginProviderRE5
         // IGT 2
         public float IGT2 { get => _igt2; set => _igt2 = value; }
         internal float _igt2;
+
+        // SRank2
+        public bool IsSRank2 => Chapters.IsSRank(Chapter, EnemiesHit2 > 0 ? ShotsFired2 / EnemiesHit2 * 100 : 0, ShevaKills, Deaths2, IGT2);
 
         public InventoryEntry[] PlayerInventory { get => _playerInventory; set => _playerInventory = value; }
         internal InventoryEntry[] _playerInventory;
